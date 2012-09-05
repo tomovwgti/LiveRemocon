@@ -60,6 +60,8 @@ public class MainActivity extends Activity {
                         mAdapter.add(value.getTitle());
                         mChannelList.add(value.getChannel());
                     }
+                    // 勢いのあるチャンネルに変更する
+                    sendRemocon(mChannelList.get(0));
                     mMap.clear();
                     Log.i(TAG, "Map Clear " + mMap.size());
                 }
@@ -76,6 +78,12 @@ public class MainActivity extends Activity {
 
     public static Handler getHandler() {
         return mHandler;
+    }
+
+    private static void sendRemocon(int channel) {
+        Remocon remo = new Remocon();
+        remo.channel = (byte) channel;
+        remo.sendData();
     }
 
     public static void ShowChannel(Ranking channel, int ikioi) {

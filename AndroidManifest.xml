@@ -21,6 +21,16 @@
             </intent-filter>
         </activity>
         <service android:name=".GetService" ></service>
+        
+        <activity android:name="com.tomovwgti.android.accessory.UsbAccessoryActivity" android:label="Live 2ch"
+            android:taskAffinity="" android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED" />
+            </intent-filter>
+
+            <meta-data android:name="android.hardware.usb.action.USB_ACCESSORY_ATTACHED"
+                android:resource="@xml/accessory_filter" />
+        </activity>
     </application>
 
 </manifest>
