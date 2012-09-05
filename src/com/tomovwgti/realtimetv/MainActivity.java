@@ -7,12 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
@@ -23,9 +21,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.tomovwgti.android.accessory.AccessoryBaseActivity;
 import com.tomovwgti.realtimetv.json.Ranking;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AccessoryBaseActivity {
     static final String TAG = MainActivity.class.getSimpleName();
 
     private PendingIntent mService;
@@ -93,8 +92,7 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void showControls() {
         setContentView(R.layout.activity_main);
 
         mMap = new TreeMap<Integer, Ranking>(new ExmComparator());

@@ -11,8 +11,6 @@
 #include <Usb.h>
 #include <AndroidAccessory.h>
 
-#define  LED           12
-
 AndroidAccessory acc("Google, Inc.",
 		     "DemoKit",
 		     "DemoKit Arduino Board",
@@ -28,6 +26,7 @@ IRsend irsend;
 void setup()
 {
   Serial.begin(9600);
+  acc.powerOn();
 }
 
 void loop() {
@@ -78,7 +77,7 @@ void loop() {
             break;
         }
         for (int i = 0; i < 3; i++) {
-          irsend.sendSony(code, LED); // Sony TV power code
+          irsend.sendSony(code, 12); // Sony TV power code
           delay(40);
         }
       }
