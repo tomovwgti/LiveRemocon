@@ -248,7 +248,7 @@ public class GetLive {
     private void callTx() {
         final AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
-        params.put("board", "liventv");
+        params.put("board", "livetx");
 
         client.get(URL, params, new AsyncHttpResponseHandler() {
             @Override
