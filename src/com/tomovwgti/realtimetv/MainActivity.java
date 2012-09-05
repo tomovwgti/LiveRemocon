@@ -130,9 +130,11 @@ public class MainActivity extends Activity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // クリックされたアイテムを取得します
+                // クリックされたアイテムを取得
                 Toast.makeText(MainActivity.this, mChannelList.get(position) + "CH",
                         Toast.LENGTH_SHORT).show();
+                // 勢いのあるチャンネルに変更する
+                sendRemocon(mChannelList.get(position));
             }
         });
     }
